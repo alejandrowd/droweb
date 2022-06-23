@@ -1,0 +1,33 @@
+.wave-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* display: flex;
+  justify-content: center; */
+  z-index: 1;
+}
+
+.wave-parent {
+  width: 100%;
+  height: 100%;
+  /* max-width: 1920px; */
+  display: flex;
+  /* z-index: 2; */
+}
+
+/* .wave-parent img {
+  max-width: 100%;
+  height: 100%;
+} */
+
+@media only screen and (max-width: 1110px) {
+  .wave-parent {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+@media only screen and (max-width: 970px) {
+  .wave-parent {
+    z-index: 1;
+  }
+}

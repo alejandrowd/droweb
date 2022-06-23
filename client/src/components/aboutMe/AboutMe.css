@@ -1,0 +1,265 @@
+.about-me-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 50px 0 0 0; */
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.about-me-parent {
+  max-width: 1500px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.about-me-details {
+  width: 48%;
+  text-align: justify;
+  padding: 15px;
+  color: var(--white);
+  flex: 1;
+}
+
+.about-me-description {
+  font-size: 1.5rem;
+  display: flex;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.highlight-heading {
+  display: flex;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0 0 5px 0;
+}
+
+.about-me-highlights {
+  margin: 80px 0;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.highlight-blob {
+  height: 12px;
+  width: 12px;
+  margin: 0 10px 0 0;
+  background-color: var(--dark-orange);
+  border-radius: 50%;
+}
+
+.about-me-options {
+  display: flex;
+  margin-top: 30px;
+}
+
+.about-me-options a {
+  z-index: 10000 !important;
+}
+
+.about-me-options .highlighted-btn {
+  margin: 0 0 0 30px;
+}
+
+/* from here */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-color: #2b2b2b;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  position: absolute;
+}
+
+.circle-small {
+  top: -15rem;
+  left: -21rem;
+}
+
+.circle-large {
+  bottom: -20rem;
+  right: -15rem;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.text {
+  color: var(--white);
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.text h1 {
+  font-size: calc(1rem + 4vw);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.text h1 span {
+  color: #994fff;
+}
+
+.text h5 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 8rem 0 4rem 0;
+}
+
+.text p {
+  text-transform: lowercase;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  display: inline-block;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  padding: 1.5rem 3rem;
+  background-color: #7d1eff;
+  transition: background-color 0.5s;
+}
+
+.cta:hover {
+  background-color: #994fff;
+}
+
+.watch-wrapper {
+  display: flex;
+  /* margin: 0px 0px 0px 100px; */
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: 9999; */
+  display: flex;
+}
+
+.layer {
+  background-color: var(--dark-orange);
+  z-index: 9999;
+}
+
+.layer-1 {
+  flex: 1;
+}
+
+.layer-2 {
+  flex: 1;
+}
+
+.layer-3 {
+  flex: 1;
+}
+
+.link-to-contact {
+  cursor: pointer;
+  color: var(--dark-orange);
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1366px) {
+  .about-me-description {
+    font-size: 1rem;
+  }
+  .highlight {
+    font-size: 1rem;
+  }
+  .highlight-heading {
+    font-size: 1rem;
+  }
+}
+/*IPAD PRO RESPONSIVENESS*/
+@media only screen and (max-width: 1110px) {
+  .about-me-parent {
+    width: 88%;
+  }
+}
+@media only screen and (max-width: 898px) {
+  .about-me-parent {
+    flex-direction: column-reverse;
+  }
+
+  .about-me-profile {
+    display: none;
+  }
+  .about-me-details {
+    width: 100%;
+  }
+  .about-me-options button {
+    z-index: 2;
+  }
+  .about-me-options a {
+    z-index: 2;
+  }
+
+  .circle-large img {
+    height: 500px;
+    width: auto;
+  }
+  .circle-large {
+    bottom: -21rem;
+    right: -23rem;
+    z-index: 1;
+  }
+  .circle-small {
+    top: -9rem;
+    left: -9rem;
+  }
+  .circle-small img {
+    height: 300px;
+    width: auto;
+  }
+  .astronaut img {
+    height: 500px;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 466px) {
+  .about-me-options {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-me-description {
+    font-size: 1rem;
+  }
+  .about-me-options .highlighted-btn {
+    margin: 24px 0 0 0 !important;
+  }
+  .about-me-options button {
+    width: 100%;
+  }
+}
