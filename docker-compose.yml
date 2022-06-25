@@ -4,6 +4,7 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+    mem_limit: 128m
     ports:
       - '80:80'
     environment:
