@@ -1,15 +1,15 @@
 import React from 'react'
-import { Typewriter } from 'react-simple-typewriter'
+import TypeWriterEffect from 'react-typewriter-effect'
 
-const Jumbotron = ({ text }) => (
-  <Typewriter
-    words={['Eat', 'Sleep', 'Code', 'Repeat!']}
-    loop
-    cursor
-    cursorStyle='_'
-    typeSpeed={70}
-    deleteSpeed={50}
-    delaySpeed={1000}
+const Jumbotron = ({ text, txtStyle }) => (
+  <TypeWriterEffect
+    textStyle={txtStyle}
+    startDelay={2000}
+    cursorColor='#3F3D56'
+    multiText={text}
+    multiTextDelay={1500}
+    typeSpeed={50}
+    multiTextLoop
   />
 )
 

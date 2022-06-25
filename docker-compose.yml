@@ -1,31 +1,22 @@
 version: '3'
 services:
-  nginx:
-    restart: always
-    build: 
-      dockerfile: Dockerfile.dev
-      context: ./nginx
-    ports:
-      - '8000:80'
-  api:
-    build: 
-      dockerfile: Dockerfile.dev
-      context: ./server
-    volumes:
-      - /app/node_modules
-      - ./server:/app
-    env_file:
-      - .env
-  client:
-    stdin_open: true
+  web:
     build: 
       dockerfile: Dockerfile.dev
       context: ./client
+    ports:
+      - '3000:3000'
     volumes:
       - /home/node/app/node_modules
       - ./client:/home/node/app
     environment:
-      - CHOKIDAR_USEPOLLING
-      - WDS_SOCKET_PORT=0
-    env_file:
-      - .env
+      - REACT_APP_GOOGLE_MAP_API_KEY=${REACT_APP_GOOGLE_MAP_API_KEY}     
+      - REACT_APP_EMAIL_SERVICE_ID=${REACT_APP_EMAIL_SERVICE_ID}     
+      - REACT_APP_EMAIL_TEMPLATE_ID=${REACT_APP_EMAIL_TEMPLATE_ID}    
+      - REACT_APP_EMAIL_PUBLIC_KEY=${REACT_APP_EMAIL_PUBLIC_KEY}     
+  
+    
+    
+  
+    
+      

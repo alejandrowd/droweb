@@ -83,10 +83,18 @@ const Profile = () => {
           <div className='profile-details-role'>
             <span className='primary-text'>
               <h1 className='skills-details'>
-                <Jumbotron />
+                <Jumbotron
+                  txtStyle={{ textAlign: 'center' }}
+                  text={[
+                    'Enthusiastic Dev 😎',
+                    'Full Stack Developer 💚',
+                    'Software Developer 💻',
+                    'Cross Platform Dev 🤗',
+                  ]}
+                />
               </h1>
               <span className='profile-role-tagline'>
-                Knack of building applications with front and back end
+                Knack of building applications with front and backend
                 operations.
               </span>
             </span>

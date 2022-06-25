@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import './ContactMe.css'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import Jumbotron from '../home/jumbotron/Jumbotron'
 import load1 from '../../assets/contactMe/load2.gif'
 import ScreenHeading from '../../utilities/screenHeading/ScreenHeading'
 import Map from '../google-map/Map'
+import emailjs from 'emailjs-com'
 
 const ContactMe = () => {
   const [name, setName] = useState('')
@@ -14,6 +14,46 @@ const ContactMe = () => {
   const [message, setMessage] = useState('')
   const [banner, setBanner] = useState('')
   const [bool, setBool] = useState(false)
+
+  const emailService = process.env.REACT_APP_EMAIL_SERVICE_ID
+  const emailTemplate = process.env.REACT_APP_EMAIL_TEMPLATE_ID
+  const emailKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY
+
+  const form = useRef()
+
+  const mailController = async () => {
+    const response = await emailjs.sendForm(
+      emailService,
+      emailTemplate,
+      form.current,
+      emailKey
+    )
+    const json = JSON.stringify(response)
+    // console.log(json)
+  }
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+    try {
+      if (name.length === 0 || email.length === 0 || message.length === 0) {
+        setBanner('Please fill out all fields')
+        toast.error('Please fill out all fields')
+        setBool(false)
+      } else {
+        setBool(true)
+        mailController().then(() => {
+          setBanner('Thank you for contacting me')
+          toast.success('Thank you for contacting me')
+          setBool(false)
+          setName('')
+          setEmail('')
+          setMessage('')
+        })
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -25,33 +65,6 @@ const ContactMe = () => {
     setMessage(e.target.value)
   }
 
-  const submitForm = async (e) => {
-    e.preventDefault()
-    try {
-      let data = {
-        name,
-        email,
-        message,
-      }
-      setBool(true)
-      const res = await axios.post('/api/contact', data)
-      if (name.length === 0 || email.length === 0 || message.length === 0) {
-        setBanner(res.data.msg)
-        toast.error(res.data.msg)
-        setBool(false)
-      } else if (res.status === 200) {
-        setBanner(res.data.msg)
-        toast.success(res.data.msg)
-        setBool(false)
-        setName('')
-        setEmail('')
-        setMessage('')
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
     <>
       <div className='contact-me-container' id='contactMe'>
@@ -59,9 +72,9 @@ const ContactMe = () => {
         <div className='contact-wrapper'>
           <div className='contact-me-form'>
             <h2 className='title'>
-              <Jumbotron text={['Get In Touch', 'Send Me an Email']} />
+              <Jumbotron text={['Get In Touch 📲', 'Send Me an Email 📧']} />
             </h2>
-            <form onSubmit={submitForm} action=''>
+            <form ref={form} onSubmit={sendEmail} action=''>
               <p>{banner}</p>
               <div className='form-group'>
                 <input
@@ -70,6 +83,7 @@ const ContactMe = () => {
                   className='form-control'
                   placeholder='NAME'
                   value={name}
+                  name='name'
                 />
               </div>
 
@@ -80,6 +94,7 @@ const ContactMe = () => {
                   value={email}
                   className='form-control'
                   placeholder='EMAIL'
+                  name='email'
                 />
               </div>
               <div className='form-group'>
@@ -89,6 +104,7 @@ const ContactMe = () => {
                   value={message}
                   rows='10'
                   placeholder='MESSAGE'
+                  name='message'
                 ></textarea>
               </div>
 
@@ -114,34 +130,6 @@ const ContactMe = () => {
               </div>
             </div>
 
-            {/* <ul className='contact-list'>
-              <li className='list-item'>
-                <i className='fa fa-map-marker fa-2x'>
-                  <span className='contact-text place'>City, State</span>
-                </i>
-              </li>
-
-              <li className='list-item'>
-                <i className='fa fa-phone fa-2x'>
-                  <span className='contact-text phone'>
-                    <a href='tel:1-212-555-5555' title='Give me a call'>
-                      (212) 555-2368
-                    </a>
-                  </span>
-                </i>
-              </li>
-
-              <li className='list-item'>
-                <i className='fa fa-envelope fa-2x'>
-                  <span className='contact-text gmail'>
-                    <a href='mailto:#' title='Send me an email'>
-                      hitmeup@gmail.com
-                    </a>
-                  </span>
-                </i>
-              </li>
-            </ul> */}
-
             <hr />
             <div className='social-media-list'>
               <a
@@ -152,17 +140,6 @@ const ContactMe = () => {
               >
                 <i className='fa fa-github' aria-hidden='true'></i>
               </a>
-
-              {/* <li>
-                <a href='#' target='_blank' className='contact-icon'>
-                  <i className='fa fa-codepen' aria-hidden='true'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#' target='_blank' className='contact-icon'>
-                  <i className='fa fa-twitter' aria-hidden='true'></i>
-                </a>
-              </li> */}
 
               <a
                 href='https://www.instagram.com/walteralejandroarguello/'

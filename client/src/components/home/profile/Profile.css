@@ -41,6 +41,11 @@
   flex-direction: column;
 }
 
+.type-profile{
+  text-align: center !important;
+
+}
+
 .highlighted-text {
   /* color: var(--dark-orange); */
 

@@ -14,14 +14,13 @@ const AboutMe = () => {
 
   const SCREEN_CONSTANTS = {
     description:
-      'Full stack web and mobile developer with background knowledge of MERN stack and Flutter, along with a knack of building applications with utmost efficiency. Strong professional with a engineering and high attention to detail.',
+      'Self-motivated person with proven ability and experience in developing applications using full stack and Data Science projects with data structures and algorithms. Dedicated performer who demonstrates innovation, communication and team work to ensure quality, timely project completion.',
+
     highlights: {
       bullets: [
-        'Full Stack web and mobile development',
-        'Interactive Front End as per the design',
-        'React and Flutter',
-        'Redux for State Management',
-        'Building REST API',
+        'Full Stack development',
+        'Build & Release Management CI/CD',
+        'GraphQL and REST API',
         'Managing database',
       ],
       heading: 'Here are a Few Highlights:',
