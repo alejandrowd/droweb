@@ -13,7 +13,15 @@ services:
       - REACT_APP_GOOGLE_MAP_API_KEY=${REACT_APP_GOOGLE_MAP_API_KEY}     
       - REACT_APP_EMAIL_SERVICE_ID=${REACT_APP_EMAIL_SERVICE_ID}     
       - REACT_APP_EMAIL_TEMPLATE_ID=${REACT_APP_EMAIL_TEMPLATE_ID}    
-      - REACT_APP_EMAIL_PUBLIC_KEY=${REACT_APP_EMAIL_PUBLIC_KEY}     
+      - REACT_APP_EMAIL_PUBLIC_KEY=${REACT_APP_EMAIL_PUBLIC_KEY} 
+  tests:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      -  /home/node/app/node_modules
+      - ./client:/home/node/app
+    command: ["npm", "run", "test"]    
   
     
     
