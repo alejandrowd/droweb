@@ -3,7 +3,6 @@ import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api'
 import logo from '../../assets/header/WA-logo-mapa.png'
 import keys from '../../keys'
 
-// const id = ['9d2004f01416a50']
 const mapContainerStyle = {
   width: '100%',
   height: '400px',
@@ -40,7 +39,6 @@ export default function Map() {
         <Marker
           position={position}
           icon={{
-            // url: 'https://jacekjeznach.com/wp-content/themes/new/img/logo.png',
             url: logo,
 
             scaledSize: new window.google.maps.Size(30, 30),
