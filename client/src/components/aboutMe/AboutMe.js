@@ -14,7 +14,7 @@ const AboutMe = () => {
 
   const SCREEN_CONSTANTS = {
     description:
-      'Self-motivated person with proven ability and experience in developing applications using full stack and Data Science projects with data structures and algorithms. Dedicated performer who demonstrates innovation, communication and team work to ensure quality, timely project completion.',
+      'Selff-motivated person with proven ability and experience in developing applications using full stack and Data Science projects with data structures and algorithms. Dedicated performer who demonstrates innovation, communication and team work to ensure quality, timely project completion.',
 
     highlights: {
       bullets: [
