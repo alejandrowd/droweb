@@ -1,7 +1,6 @@
 import React from 'react'
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api'
 import logo from '../../assets/header/WA-logo-mapa.png'
-import keys from '../../keys'
 
 const mapContainerStyle = {
   width: '100%',
@@ -21,7 +20,7 @@ const options = {
 
 export default function Map() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: keys.mapApi,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
   })
 
   if (loadError) return 'Error loading maps'
